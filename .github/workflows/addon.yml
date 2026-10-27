@@ -19,7 +19,7 @@ concurrency:
 jobs:
   lint:
     name: Add-on lint
-    runs-on: ${{ fromJSON(vars.RUNNER_LINUX || '["self-hosted","Linux","X64"]') }}
+    runs-on: ${{ fromJSON(vars.RUNNER_LINUX || '"ubuntu-latest"') }}
     steps:
       - uses: actions/checkout@v7
       - uses: frenck/action-addon-linter@v2
@@ -28,15 +28,15 @@ jobs:
       - name: Versions agree
         run: |
           v=$(sed -n 's/^version: "\(.*\)"/\1/p' sandyk/config.yaml)
-          grep -q "sandyk-server:$v\$" sandyk/Dockerfile
-          test "$(grep -c "sandyk-server:$v\$" sandyk/build.yaml)" = 2
+          grep -q "keremet-dev/sandyk:$v\$" sandyk/Dockerfile
+          test "$(grep -c "keremet-dev/sandyk:$v\$" sandyk/build.yaml)" = 2
           grep -q "^## $v\$" sandyk/CHANGELOG.md
       - name: shellcheck
         run: docker run --rm -v "$PWD:/mnt:ro" -w /mnt koalaman/shellcheck:stable sandyk/run.sh scripts/test.sh
 
   test:
     name: Run as the Supervisor does
-    runs-on: ${{ fromJSON(vars.RUNNER_LINUX || '["self-hosted","Linux","X64"]') }}
+    runs-on: ${{ fromJSON(vars.RUNNER_LINUX || '"ubuntu-latest"') }}
     steps:
       - uses: actions/checkout@v7
       - uses: docker/login-action@v4

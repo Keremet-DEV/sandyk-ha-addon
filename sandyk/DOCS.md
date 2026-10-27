@@ -18,7 +18,7 @@ no public IP needed.
    from the internet**, pick a name and get `https://<name>.sandyk.cloud`. It needs a Sandyk
    account (sign in with Apple or Google).
 
-Step-by-step instructions with pictures of every way to install: https://sandyk.app/server/
+Step-by-step instructions for every way to install: https://sandyk.app/en/server/
 
 ## Options
 

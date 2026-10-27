@@ -20,14 +20,15 @@ Assistant на вкладке «Документация»).
 
 ## Как устроено
 
-Дополнение — образ сервера `ghcr.io/keremet-dev/sandyk-server:<версия>` плюс
+Дополнение — образ сервера `ghcr.io/keremet-dev/sandyk:<версия>` плюс
 `run.sh`: тот превращает настройки дополнения (`/data/options.json`) в переменные `FM_*`,
 готовит папки и запускает сервер от uid 65532. Домашние адреса по умолчанию берутся из
 Supervisor API (`hassio_api`).
 
 - База — `/data/sandyk` (входит в бэкапы Home Assistant), файлы — `storage_dir`
   (по умолчанию `/share/sandyk`).
-- Новая версия сервера: тег `vX.Y.Z` в sandyk-server, затем здесь тот же номер в
+- Новая версия сервера: тег `vX.Y.Z` в sandyk-server; когда образ `ghcr.io/keremet-dev/sandyk:X.Y.Z`
+  появится (его публикует sandyk-dist), здесь тот же номер в
   `sandyk/config.yaml` (`version`), `sandyk/build.yaml`, `Dockerfile` и запись в
   `CHANGELOG.md`.
 
