@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+- Server 0.3.0. A new server's first account needs the setup code from the add-on's **Log**
+  tab, so nobody else on your network can make themselves the admin.
+- Access from outside without a public IP is set up in the phone app (Settings → Access from
+  the internet), no relay token to copy.
+- Leaving a server deletes your files there; self-registered users can get a space limit.
+
 ## 0.2.0
 
 - Named Sandyk (slug `sandyk`, data in `/data/sandyk`, files in `/share/sandyk`); server 0.2.0:

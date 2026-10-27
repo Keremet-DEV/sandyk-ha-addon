@@ -6,10 +6,19 @@ no public IP needed.
 
 ## Getting started
 
-1. Start the add-on and open the web UI (**Open web UI**). Register: the first user becomes the
-   admin. Registration then closes unless **Open registration** is on; the admin adds people in
-   **Settings → Users**.
-2. In the phone app connect to a server at `http://<Home Assistant address>:8080` and sign in.
+1. Start the add-on and open its **Log** tab. Until the server has an account it writes a setup
+   code there, like `ABCD-EFGH`.
+2. Open the web UI (**Open web UI**) and create an account with that code. This first account
+   is the admin. Registration then closes unless **Open registration** is on; the admin adds
+   people in **Settings → Users**. (You can create the first account from the phone app instead:
+   it asks for the same code.)
+3. In the phone app: **Settings → Connect a Server → Own Server**, address
+   `http://<Home Assistant address>:8080`, and sign in.
+4. To reach the server away from home without a public IP: in the app, **Settings → Access
+   from the internet**, pick a name and get `https://<name>.sandyk.cloud`. It needs a Sandyk
+   account (sign in with Apple or Google).
+
+Step-by-step instructions with pictures of every way to install: https://sandyk.app/server/
 
 ## Options
 
@@ -19,9 +28,9 @@ no public IP needed.
   `blobs` folder, change the option, start.
 - **Home addresses** (`local_urls`): left empty, the add-on announces the host's addresses with
   the published port, so phones at home skip the relay.
-- **Relay** (`relay_url`, `relay_token`): access from outside without a public IP. The server
-  then answers at `https://<name>.<relay domain>`; certificates are issued for your server, the
-  relay only forwards encrypted traffic.
+- **Relay** (`relay_url`, `relay_token`): only for a relay of your own or a name issued by hand.
+  For `<name>.sandyk.cloud` leave them empty and take the name in the app (step 4 above). The
+  relay only forwards encrypted traffic; the certificate belongs to your server.
 - **Days in trash** (`trash_days`), **Log level** (`log_level`).
 
 ## Backups
